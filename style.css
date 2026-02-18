@@ -1,0 +1,40 @@
+/* 1. The Global Reset */
+*, *::before, *::after {
+    box-sizing: border-box; /* Fixes the layout math */
+    margin: 0;              /* Removes ghost outer space */
+    padding: 0;             /* Removes ghost inner space */
+}
+
+/* 1.2 The Full-Screen Lock */
+html, body {
+    height: 100vh;          /* Tells the page to be exactly as tall as the screen */
+    width: 100vw;           /* Tells the page to be exactly as wide as the screen */
+    overflow: hidden;       /* Prevents accidental scrolling */
+}
+
+/* 2. The Macro Layout (The 3-Row Body Grid) */
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    background-color: #1a1a1a; 
+}
+
+/* 3. The Micro Layout (The 3-cloumn Main Grid)*/
+main {
+    display: grid;
+    grid-template-columns: 280px 1fr 280px;
+    gap: 20px;
+}
+/* 4. Header & Footer (Flexbox)*/
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;                  /* Adds internal spacing so the weather/profile icons don't touch the screen edges */
+}
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
