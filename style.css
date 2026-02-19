@@ -17,6 +17,8 @@ body {
     display: grid;
     grid-template-rows: auto 1fr auto;
     background-color: #1a1a1a; 
+    gap: 15px;
+    color: white;
 }
 
 /* 3. The Micro Layout (The 3-cloumn Main Grid)*/
@@ -26,30 +28,91 @@ main {
     gap: 20px;
 }
 /* 4. Header & Footer (Flexbox)*/
-header {
+header, footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;                  /* Adds internal spacing so the weather/profile icons don't touch the screen edges */
+    padding: 10px 80px; /* This adds 40px of space on the sides to move them away from the screen edge */
 }
-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-}
-
+/* 5. Component Interior (Sidebars & Buttons)*/
 nav {
     display: flex;
     flex-direction: column;
 }
-.app-btn, .tool-btn {
+.app-btn, .tool-btn{
+    width: 100%;
     border: 0;
     outline: 0;
-    background-color: none;
+    background-color: transparent;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 8px;
+    background: rgba(255, 255, 255, 0.05);      /* 1. Semi-transparent background */
+    backdrop-filter: blur(10px);                  /* 2. Blur effect (The Magic) */
+    -webkit-backdrop-filter: blur(10px);          /* For Safari support */
+    box-shadow: 0 15px 32px 0 rgba(0, 0, 0, 0.37);/* 3. Shadows for depth */
+    border: 1px solid rgba(255, 255, 255, 0.1);  /* 4. Border and Radius */
+    border-radius: 30px;
+    padding: 1.5rem;
+    font-size: 1rem; /* Using rem for scalability */
+    color: white;
+    margin-bottom: 1rem; 
+}
+/* 6. The "Smart Hub" Visuals (Glassmorphism)*/
+.app-btn:active, .tool-btn:active {              /* This part works for everyone (mouse and touch) */
+    transform: scale(0.92); 
+    background-color: rgba(255, 255, 255, 0.2);
+}
+@media (hover: hover) {                          /* This part ONLY works if the device has a mouse/pointer */
+    .app-btn:hover, .tool-btn:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        cursor: pointer;
+    }
+}
+
+.calendar-container {                             /* Target the middle section of your main grid */
+    background: rgba(255, 255, 255, 0.05);      /* 1. Semi-transparent background */
+    backdrop-filter: blur(10px);                  /* 2. Blur effect (The Magic) */
+    -webkit-backdrop-filter: blur(10px);          /* For Safari support */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);/* 3. Shadows for depth */
+    border: 1px solid rgba(255, 255, 255, 0.1);  /* 4. Border and Radius */
+    border-radius: 20px;
+    padding: 2rem;                                /* Padding to keep the content away from the glass edges */
+    display: flex;                                /* Center the content inside the glass */
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Optional: Typography check for Step 6.4 */
+.calendar h3 {
+    font-size: 1.5rem; /* Using rem for scalability */
+    color: white;
+    margin-bottom: 1rem;
+}
+.left-sidebar, .right-sidebar{
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* This centers the "Your Apps" and "Tools" buttons horizontally */
+}
+
+/* Also, make sure those header buttons don't have the default background */
+.category-header-left-btn, .category-header-right-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 20px;
+    cursor: pointer;
+    width: 100%; /* Optional: This makes the button area span the whole sidebar */
+}
+.tools-app a, .personal-apps a {
+    text-decoration: none;
+    width: 100%;
+    display: block;
+}
+a {
+    text-decoration: none;
+    color: inherit; /* This tells the link to just use the color of the button text */
+
 }
