@@ -46,20 +46,3 @@ Footer: System notifications and power management.
 
 "This project is currently under active development as I progress through the Full Stack JavaScript path of The Odin Project."
 
-📸 Wireframes
-
-(Once HTML & CSS skeleton completed, add a screenshot here!)
-
-🛠 Setup & Installation
-
-Clone the repository:
-
-Bash
-git clone https://github.com/your-username/kitchen-hub.git
-Navigate to the directory:
-
-Bash
-cd kitchen-hub
-Open index.html in your favorite browser.
-
-
