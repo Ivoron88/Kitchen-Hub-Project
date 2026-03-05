@@ -1,3 +1,5 @@
+// Digital Clock and Date Engine Section
+
 function updateClock() {
     //1. Grab our elements from the HTML
     const timeElement = document.getElementById('current-time');
@@ -17,3 +19,46 @@ function updateClock() {
 setInterval(updateClock, 1000);
 // 6. Call it once immediatly so there's no delay on page load
 updateClock();
+
+
+// Weather Engine section
+
+const apiKey = '799f76505921f759d7d807cee65e3a67'; // Confirmed key
+const city = 'Arlington';
+
+async function updateWeather() {
+    try {
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`);
+        
+        // If the API is still 'waking up', this will stop the code from crashing
+        if (!response.ok) {
+            console.log("Weather API is still warming up... checking again in 10 mins.");
+            return;
+        }
+
+        const data = await response.json();
+
+        // 1. Target my HTML IDs
+        const tempElement = document.getElementById('temp');
+        const descElement = document.getElementById('description');
+        const iconElement = document.getElementById('weather-icon');
+
+        // 2. Inject Temperature
+        tempElement.textContent = `${Math.round(data.main.temp)}°F`;
+
+        // 3. Inject Description (Capitalized)
+        const rawDesc = data.weather[0].description;
+        descElement.textContent = rawDesc.charAt(0).toUpperCase() + rawDesc.slice(1);
+
+        // 4. Update the Icon to the real-time version from OpenWeather
+        const iconCode = data.weather[0].icon;
+        iconElement.src = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+
+    } catch (error) {
+        console.error("Weather error:", error);
+    }
+}
+
+// Check weather immediately, then every 30 minutes
+updateWeather();
+setInterval(updateWeather, 1800000);

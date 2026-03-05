@@ -5,6 +5,15 @@
     padding: 0;             /* Removes ghost inner space */
 }
 
+/* Code below is to have the glassmorphism activated if later decide to change design.
+
+:root {
+--glass-bg: rgba(255,255,255,0.05);
+--glass-border: rgba(255,255,255,0.1);
+
+}
+*/
+
 /* 1.2 The Full-Screen Lock */
 html, body {
     height: 100vh;          /* Tells the page to be exactly as tall as the screen */
@@ -124,7 +133,20 @@ a {
     justify-content: center; /* 2. Centers it horizontally */
     align-items: center;     /* 3. Centers it vertically */
     width: 100%;            /* 4. Ensures the box takes up all available space */
+
+    /* Maybe add code below as a later update to also add glassmorphism on time-box*/
+
+    /* background: var(--glass-bg); /* Uses the 5% white we defined */
+    /*border: 1px solid var(--glass-border); /* Adds a thin, frosty edge */
 }
 .date-box {
     font-size: 35px;
+}
+*::-webkit-scrollbar {
+    display: none;
+}
+
+* {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
