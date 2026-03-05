@@ -50,7 +50,7 @@ nav {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    background: rgba(255, 255, 255, 0.05);      /* 1. Semi-transparent background */
+    background: rgba(245, 245, 220, 0.15);      /* 1. Semi-transparent background */
     backdrop-filter: blur(10px);                  /* 2. Blur effect (The Magic) */
     -webkit-backdrop-filter: blur(10px);          /* For Safari support */
     box-shadow: 0 15px 32px 0 rgba(0, 0, 0, 0.37);/* 3. Shadows for depth */
@@ -58,7 +58,7 @@ nav {
     border-radius: 30px;
     padding: 1.5rem;
     font-size: 1rem; /* Using rem for scalability */
-    color: white;
+    color: beige;
     margin-bottom: 1rem; 
 }
 /* 6. The "Smart Hub" Visuals (Glassmorphism)*/
@@ -117,4 +117,14 @@ nav {
 a {
     text-decoration: none;
     color: inherit; /* This tells the link to just use the color of the button text */
+}
+.time-box {
+    font-size: 50px;
+    display: flex;          /* 1. Turn on the "Auto-Center" engine */
+    justify-content: center; /* 2. Centers it horizontally */
+    align-items: center;     /* 3. Centers it vertically */
+    width: 100%;            /* 4. Ensures the box takes up all available space */
+}
+.date-box {
+    font-size: 35px;
 }
