@@ -69,7 +69,7 @@ nav {
     justify-content: center;
     gap: 5px;
     background: rgba(245, 245, 220, 0.15);      /* 1. Semi-transparent background */
-    backdrop-filter: transparent(10px);                  /* 2. Blur effect (The Magic) */
+    backdrop-filter: blur(2px);                  /* 2. Blur effect (The Magic) */
     -webkit-backdrop-filter: blur(10px);          /* For Safari support */
     box-shadow: 0 15px 32px 0 rgba(0, 0, 0, 0.37);/* 3. Shadows for depth */
     border: 1px solid rgba(255, 255, 255, 0.1);  /* 4. Border and Radius */
@@ -95,7 +95,7 @@ nav {
 
 .calendar-container {                             /* Target the middle section of your main grid */
     background: rgba(255, 255, 255, 0.05);      /* 1. Semi-transparent background */
-    backdrop-filter: transparent(10px);                  /* 2. Blur effect (The Magic) */
+    backdrop-filter: blur(2px);                  /* 2. Blur effect (The Magic) */
     -webkit-backdrop-filter: blur(10px);          /* For Safari support */
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);/* 3. Shadows for depth */
     border: 1px solid rgba(255, 255, 255, 0.1);  /* 4. Border and Radius */
