@@ -31,8 +31,17 @@ body {
     background-color: #1a1a1a; 
     gap: 15px;
     color: white;
+     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 
+                 -1px -1px 4px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
 }
 
+/* This is to make the text change color automatically based on background 
+header, footer, .calendar-container {
+    mix-blend-mode: difference;
+    color: white; /* It will turn black over light areas automatically
+}
+*/
 /* 3. The Micro Layout (The 3-cloumn Main Grid)*/
 main {
     display: grid;
@@ -138,6 +147,15 @@ a {
     text-decoration: none;
     color: inherit; /* This tells the link to just use the color of the button text */
 }
+
+.time-box h1, .date-box p, .calendar h3{
+    color: white; /* Switch back to white for that clean look */
+    /* This adds a soft dark "aura" around the letters */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 
+                 -1px -1px 4px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+}
+
 .time-box {
     font-size: 50px;
     display: flex;          /* 1. Turn on the "Auto-Center" engine */
@@ -162,6 +180,43 @@ a {
     scrollbar-width: none;
 }
 
+.exit {
+    position: absolute;
+    /* This pushes it slightly outside the top-right corner */
+    top: -15px; 
+    right: -15px;
+    
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Makes it a perfect circle */
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    
+    /* Using a solid color or a strong glass effect so it stands out */
+    background: linear-gradient(135deg, #ff4b2b, #ff416c); 
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+    
+    /* This creates the "coming out of the window" 3D look */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    z-index: 101; /* Ensure it stays above the iframe */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.exit:hover {
+    transform: scale(1.1); /* Pops out even more on hover */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+}
+
+.exit:active {
+    transform: scale(0.95); /* Sinks in when clicked */
+}
+
 #modal-overlay {
     position: fixed;
     z-index: 100;      /* To sit on top of everything*/
@@ -183,10 +238,12 @@ a {
     border: 1px solid var(--glass-border);
     border-radius: 20px;
     position: relative;          /* This helps position the 'X' button later */
-    overflow: hidden;            /* Clips the iframe corners to match the window radius */
+    overflow: visible;            /* Clips the iframe corners to match the window radius */
 }
 #app-frame {
     width: 100%;
     height: 100%;
     border: none;                /* Removes the default ugly border */
+    border-radius: 20px; /* Keep the frame corners rounded instead */
 }
+

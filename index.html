@@ -9,7 +9,7 @@
 <body>
     <header class="header-container">
         <div class="weather">
-            <img src="./header-imgs/cloudy.svg" height="80" alt="Weather">
+            <img src="./header-imgs/cloudy.svg" height="80" alt="Weather" id="weather-icon">
             <h2 id="temp">10000°F</h2>
             <span id="description">Snowy</span>
             <p id="city">Arlington, TX</p>
@@ -37,10 +37,6 @@
                     <img src="./sidebar-imgs/pictures-icon.svg" alt="Pictures" class="btn-icon">
                     <span>Pictures</span>
                 </button>
-                <button type="button" class="app-btn" data-url="./videos.html">
-                    <img src="./sidebar-imgs/videos-icon.svg" alt="Videos" class="btn-icon">
-                    <span>Videos</span>
-                </button>
                 <button type="button" class="tool-btn" data-url="https://www.facebook.com/">
                     <img src="./sidebar-imgs/facebook.svg" alt="Facebook" class="btn-icon">
                     <span>Facebook</span>
@@ -48,6 +44,10 @@
                 <button type="button" class="tool-btn" data-url="https://www.instagram.com/">
                     <img src="./sidebar-imgs/instagram.svg" alt="Instagram" class="btn-icon">
                     <span>Instagram</span>
+                </button>
+                 <button type="button" class="app-btn" data-url="https://open.spotify.com/">
+                    <img src="./sidebar-imgs/spotify.svg" alt="spotify" class="btn-icon">
+                    <span>Spotify</span>
                 </button>
                 <button type="button" class="app-btn" data-url="./games.html">
                     <img src="./sidebar-imgs/games-icon.svg" alt="Mini Games" class="btn-icon">
@@ -71,7 +71,7 @@
                     <h3>Tools Apps</h3>
                 </button>  
             <nav class="tools-apps" aria-label="Tools and Utilities">
-               <button type="button" class="tool-btn" id="inventory-btn">
+               <button type="button" class="tool-btn" data-url="./inventory.html">
                     <img src="./sidebar-imgs/inventory-icon.svg" alt="Inventory" class="btn-icon">
                     <span>Inventory</span>
                 </button>
@@ -84,7 +84,7 @@
                     <img src="./sidebar-imgs/instacart.svg" alt="Instacart" class="btn-icon">
                     <span>Instacart</span>
                 </button>
-                <button type="button" class="tool-btn" data-url="https://www.youtube.com/">
+                <button type="button" class="tool-btn" data-url="https://www.wikipedia.org">
                     <img src="./sidebar-imgs/YouTube.svg" alt="YouTube" class="btn-icon">
                     <span>Youtube</span>
                 </button>
@@ -92,7 +92,6 @@
                     <img src="./sidebar-imgs/whatsapp-icon.svg" alt="WhatsApp" class="btn-icon">
                     <span>What'sApp</span>
                 </button>
-                </a>
             </nav>
         </aside>
     </main>
@@ -108,7 +107,6 @@
             <button type="button" class="power-btn">⭕ Power</button>
         </div>
     </footer>
-    <script src="./script.js"></script>
         <div id="modal-overlay">
             <div class="window">
                 <button type="button" class="exit" id="close-modal">
@@ -116,6 +114,7 @@
                 </button>
             <iframe id="app-frame" src="" frameborder="0"></iframe>
          </div>
+        <script src="./script.js"></script>
 </div>
 </body>
 </html>

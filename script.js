@@ -64,4 +64,44 @@ updateWeather();
 setInterval(updateWeather, 1800000);
 
 
-/* Sidebar "Brain" (Pop-Ups)*/
+/* --- The App Engine --- */
+
+// 1. Select the buttons and overlay
+const buttons = document.querySelectorAll('.app-btn, .tool-btn');
+const overlay = document.getElementById('modal-overlay');
+const closeBtn = document.getElementById('close-modal');
+
+// 2. The "Open App" Logic
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        const url = button.getAttribute('data-url');
+        // We select the iframe inside here so we know it exists when clicked!
+        const iframe = document.getElementById('app-frame'); 
+        
+        if (url && iframe) {
+            console.log("Opening:", url);
+            iframe.src = url;
+            overlay.style.display = 'flex';
+        } else {
+            console.error("Error: URL or Iframe missing!");
+        }
+    });
+});
+
+// 3. The "Close App" Logic
+if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+        const iframe = document.getElementById('app-frame');
+        overlay.style.display = 'none';
+        if (iframe) iframe.src = '';
+    });
+}
+
+// 4. Click background to close
+overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) {
+        const iframe = document.getElementById('app-frame');
+        overlay.style.display = 'none';
+        if (iframe) iframe.src = '';
+    }
+});
