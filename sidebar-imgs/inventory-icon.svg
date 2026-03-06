@@ -1,0 +1,14 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="boardGrad" x1="20" y1="16" x2="44" y2="52" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3B82F6"/> <stop offset="100%" stop-color="#1D4ED8"/> </linearGradient>
+  </defs>
+
+  <rect x="18" y="14" width="28" height="36" rx="3" fill="url(#boardGrad)"/>
+  <rect x="24" y="10" width="16" height="6" rx="2" fill="#94A3B8"/> <path d="M24 24H40M24 32H40M24 40H32" stroke="white" stroke-opacity="0.6" stroke-width="2" stroke-linecap="round"/>
+
+  <path d="M38 30L40 32L44 28" stroke="#22C55E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M38 38L40 40L44 36" stroke="#22C55E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="44" y="42" width="4" height="12" rx="1" transform="rotate(-45 44 42)" fill="#F59E0B"/>
+</svg>

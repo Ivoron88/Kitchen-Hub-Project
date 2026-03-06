@@ -5,14 +5,13 @@
     padding: 0;             /* Removes ghost inner space */
 }
 
-/* Code below is to have the glassmorphism activated if later decide to change design.
+/* Code below is to have the glassmorphism activated individually */
 
 :root {
 --glass-bg: rgba(255,255,255,0.05);
 --glass-border: rgba(255,255,255,0.1);
 
 }
-*/
 
 /* 1.2 The Full-Screen Lock */
 html, body {
@@ -25,6 +24,10 @@ html, body {
 body {
     display: grid;
     grid-template-rows: auto 1fr auto;
+    background-image:url(./background-imgs/arlingtontxlive.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     background-color: #1a1a1a; 
     gap: 15px;
     color: white;
@@ -49,27 +52,35 @@ nav {
     display: flex;
     flex-direction: column;
 }
+* {
+    box-sizing: border-box;
+}
 .app-btn, .tool-btn{
-    width: 100%;
-    border: 0;
-    outline: 0;
+    width: 6.3rem;          /* Slightly narrower */
+    height: 6.3rem;         /* Set a fixed height to keep them square */
+    padding: 0.8rem;        /* Cut padding in half to give the icon room */
+    margin-bottom: 0.5rem;  /* Reduce the gap between buttons */
+    border-radius: 20px;    /* A slightly tighter corner looks better on smaller boxes */
+    font-size: 0.85rem;     /* Slightly smaller text to prevent overflow */
     background-color: transparent;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 5px;
     background: rgba(245, 245, 220, 0.15);      /* 1. Semi-transparent background */
-    backdrop-filter: blur(10px);                  /* 2. Blur effect (The Magic) */
+    backdrop-filter: transparent(10px);                  /* 2. Blur effect (The Magic) */
     -webkit-backdrop-filter: blur(10px);          /* For Safari support */
     box-shadow: 0 15px 32px 0 rgba(0, 0, 0, 0.37);/* 3. Shadows for depth */
     border: 1px solid rgba(255, 255, 255, 0.1);  /* 4. Border and Radius */
-    border-radius: 30px;
-    padding: 1.5rem;
-    font-size: 1rem; /* Using rem for scalability */
     color: beige;
-    margin-bottom: 1rem; 
 }
+.btn-icon {
+    width: 2.8rem;
+    height: 2.8rem;
+    object-fit: contain;
+}
+
 /* 6. The "Smart Hub" Visuals (Glassmorphism)*/
 .app-btn:active, .tool-btn:active {              /* This part works for everyone (mouse and touch) */
     transform: scale(0.92); 
@@ -84,7 +95,7 @@ nav {
 
 .calendar-container {                             /* Target the middle section of your main grid */
     background: rgba(255, 255, 255, 0.05);      /* 1. Semi-transparent background */
-    backdrop-filter: blur(10px);                  /* 2. Blur effect (The Magic) */
+    backdrop-filter: transparent(10px);                  /* 2. Blur effect (The Magic) */
     -webkit-backdrop-filter: blur(10px);          /* For Safari support */
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);/* 3. Shadows for depth */
     border: 1px solid rgba(255, 255, 255, 0.1);  /* 4. Border and Radius */
@@ -137,7 +148,7 @@ a {
     /* Maybe add code below as a later update to also add glassmorphism on time-box*/
 
     /* background: var(--glass-bg); /* Uses the 5% white we defined */
-    /*border: 1px solid var(--glass-border); /* Adds a thin, frosty edge */
+    /* border: 1px solid var(--glass-border); /* Adds a thin, frosty edge */
 }
 .date-box {
     font-size: 35px;
@@ -149,4 +160,33 @@ a {
 * {
     -ms-overflow-style: none;
     scrollbar-width: none;
+}
+
+#modal-overlay {
+    position: fixed;
+    z-index: 100;      /* To sit on top of everything*/
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+}
+
+.window {
+    width: 90%;
+    height: 80%;
+    background: var(--glass-bg); /* Use your glass variable here! */
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    position: relative;          /* This helps position the 'X' button later */
+    overflow: hidden;            /* Clips the iframe corners to match the window radius */
+}
+#app-frame {
+    width: 100%;
+    height: 100%;
+    border: none;                /* Removes the default ugly border */
 }

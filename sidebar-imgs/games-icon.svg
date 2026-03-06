@@ -1,0 +1,15 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gameGradBig" x1="10" y1="20" x2="54" y2="44" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#22D3EE"/>
+      <stop offset="50%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#D946EF"/>
+    </linearGradient>
+  </defs>
+
+  <path d="M15 28H49C51 28 56 29.5 56 34V42C56 46.5 53 48 49 48H15C11 48 8 46.5 8 42V34C8 29.5 13 28 15 28Z" fill="url(#gameGradBig)"/>
+  
+  <path d="M14 38H24M19 33V43" stroke="#1E293B" stroke-width="4" stroke-linecap="round"/>
+
+  <circle cx="42" cy="34" r="3.5" fill="#3B82F6"/> <circle cx="50" cy="34" r="3.5" fill="#22C55E"/> <circle cx="46" cy="41" r="3.5" fill="#F59E0B"/> <rect x="29" y="36" width="6" height="2" rx="1" fill="white" fill-opacity="0.5"/>
+</svg>

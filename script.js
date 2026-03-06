@@ -62,3 +62,6 @@ async function updateWeather() {
 // Check weather immediately, then every 30 minutes
 updateWeather();
 setInterval(updateWeather, 1800000);
+
+
+/* Sidebar "Brain" (Pop-Ups)*/
