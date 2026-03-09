@@ -75,15 +75,12 @@ const closeBtn = document.getElementById('close-modal');
 buttons.forEach(button => {
     button.addEventListener('click', () => {
         const url = button.getAttribute('data-url');
-        // We select the iframe inside here so we know it exists when clicked!
         const iframe = document.getElementById('app-frame'); 
         
         if (url && iframe) {
-            console.log("Opening:", url);
             iframe.src = url;
-            overlay.style.display = 'flex';
-        } else {
-            console.error("Error: URL or Iframe missing!");
+            // ONLY use the class. Remove the .style.display line!
+            overlay.classList.add('active'); 
         }
     });
 });
@@ -91,9 +88,14 @@ buttons.forEach(button => {
 // 3. The "Close App" Logic
 if (closeBtn) {
     closeBtn.addEventListener('click', () => {
-        const iframe = document.getElementById('app-frame');
-        overlay.style.display = 'none';
-        if (iframe) iframe.src = '';
+        // Start the shrink/fade animation immediately
+        overlay.classList.remove('active'); 
+        
+        // Wait for the animation to finish before clearing the iframe
+        setTimeout(() => {
+            const iframe = document.getElementById('app-frame');
+            if (iframe) iframe.src = '';
+        }, 300); // This matches your 0.3s CSS transition
     });
 }
 
